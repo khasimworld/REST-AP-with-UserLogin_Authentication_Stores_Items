@@ -1,4 +1,5 @@
 import os
+import re
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
@@ -14,7 +15,7 @@ from db import db
 
 app=Flask(__name__)
 #In the deployed heroku server if the postgres DATABASE_URL variable doesnt exist, we will use local sqlitedb
-app.config['SQLALCHEMY_DATABASE_URI'] =os.environ.get('DATABASE_URL', 'sqlite:///data.db')#we are saying that sqlalmy database is in root folder of this project
+app.config['SQLALCHEMY_DATABASE_URI'] =os.environ.get('DATABASE_URL_CHANGE', 'sqlite:///data.db')#we are saying that sqlalmy database is in root folder of this project
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False #setting flask sqlalchemy tracking to No, but it doesn't stop the Imported SQLalchemy tracking.
 app.secret_key='password'
 api=Api(app)
