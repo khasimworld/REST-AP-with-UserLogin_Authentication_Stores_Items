@@ -17,13 +17,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False #setting flask sqlalchemy tra
 app.secret_key='password'
 api=Api(app)
 
-#creates tables before the first request
-@app.before_first_request 
-def create_tables():
-  db.create_all()
-
-
-
 # JWT createa a new end point /auth.
 # by usng /auth endpoint authunticate function uses the usernamme and password to generate jw token
 # we send that particular jw token when we send another request to API.
